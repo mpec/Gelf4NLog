@@ -1,3 +1,5 @@
+#This is a fork of https://github.com/seymen/Gelf4NLog
+
 # Gelf4NLog
 Gelf4NLog is an [NLog] target implementation to push log messages to [GrayLog2]. It implements the [Gelf] specification and communicates with GrayLog server via UDP.
 
