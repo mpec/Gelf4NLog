@@ -65,4 +65,4 @@ Logger.Log(eventInfo);
 [Gelf]: http://graylog2.org/about/gelf
 
 ##Contributing
-Would you be interested in contributing? All PRs are welcome but also see issue [#12](../../issues/12).
+Would you be interested in contributing? All PRs are welcome.
