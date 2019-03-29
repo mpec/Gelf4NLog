@@ -1,4 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Net;
+using System.Net.Sockets;
 using NLog;
 using NLog.Targets;
 using Newtonsoft.Json;
@@ -8,8 +11,9 @@ namespace Gelf4NLog.Target
     [Target("GrayLog")]
     public class NLogTarget : TargetWithLayout
     {
-        [Required]
         public string HostIp { get; set; }
+
+        public string HostDns { get; set; }
 
         [Required]
         public int HostPort { get; set; }
@@ -38,6 +42,11 @@ namespace Gelf4NLog.Target
 
         protected override void Write(LogEventInfo logEvent)
         {
+            if (!string.IsNullOrEmpty(HostDns) && string.IsNullOrEmpty(HostIp))
+            {
+                HostIp = Dns.GetHostEntry(HostDns).AddressList.FirstOrDefault()?.ToString();
+            }
+
             var jsonObject = Converter.GetGelfJson(logEvent, Facility);
             if (jsonObject == null) return;
             Transport.Send(HostIp, HostPort, jsonObject.ToString(Formatting.None, null));

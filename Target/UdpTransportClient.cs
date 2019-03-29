@@ -7,7 +7,7 @@ namespace Gelf4NLog.Target
     {
         public void Send(byte[] datagram, int bytes, IPEndPoint ipEndPoint)
         {
-            using (var udpClient = new UdpClient())
+            using (var udpClient = new UdpClient(ipEndPoint.AddressFamily))
             {
                 udpClient.Send(datagram, bytes, ipEndPoint);
             }
