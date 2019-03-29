@@ -60,3 +60,5 @@ _ReSharper*/
 
 # visual studio database projects
 *.dbmdl
+/.vs/
+/packages
