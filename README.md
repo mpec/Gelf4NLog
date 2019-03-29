@@ -1,5 +1,3 @@
-# This is a fork of https://github.com/seymen/Gelf4NLog
-
 # Gelf4NLog
 Gelf4NLog is an [NLog] target implementation to push log messages to [GrayLog2]. It implements the [Gelf] specification and communicates with GrayLog server via UDP.
 
@@ -67,4 +65,4 @@ Logger.Log(eventInfo);
 [Gelf]: http://graylog2.org/about/gelf
 
 ##Contributing
-Would you be interested in contributing? All PRs are welcome.
+Would you be interested in contributing? All PRs are welcome but also see issue [#12](../../issues/12).
